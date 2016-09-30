@@ -23,14 +23,7 @@ function Db() {
     see
   }
 
-
   return publicAPI
 }
-
-let db = Db()
-db.add({name: "mow", text: "nathan should mow"})
-db.update(1,{name: "asda", text: "nathaasdsn should mow"})
-db.see()
-
 
 module.exports = db
