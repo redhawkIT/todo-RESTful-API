@@ -1,14 +1,15 @@
 function Db() {
-  const storage = []
+  let storage = []
 
-  const add = ({name, text}) => storage.push({name, text, id: Math.random()})
+  const add = ({name, text}) => storage.push({name, text, id:1 })
 
   const remove = id => storage = storage.filter(ele => ele.id !== id)
 
   const update = (id, {name, text}) => {
-    storage.forEach(ele => {
+    storage.forEach((ele, i) => {
       if(ele.id === id) {
-        ele = {name, text}
+      	storage[i] = {name, text, id: ele.id}
+        console.log(ele)
       }
     })
   }
@@ -28,6 +29,7 @@ function Db() {
 
 let db = Db()
 db.add({name: "mow", text: "nathan should mow"})
+db.update(1,{name: "asda", text: "nathaasdsn should mow"})
 db.see()
 
 
